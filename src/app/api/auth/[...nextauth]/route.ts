@@ -14,15 +14,18 @@ const handler = NextAuth({
       async authorize(credentials) {
         if (!credentials) return null;
         try {
-          const response = await fetch(`http://localhost:8888/api/auth/login`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              loginkey: credentials.loginkey,
-              password: credentials.password,
-            }),
-            credentials: "include",
-          });
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                loginkey: credentials.loginkey,
+                password: credentials.password,
+              }),
+              credentials: "include",
+            },
+          );
 
           const data = await response.json();
 
@@ -54,7 +57,7 @@ const handler = NextAuth({
       if (account?.provider === "google") {
         try {
           const response = await fetch(
-            `http://localhost:8888/api/auth/google`,
+            `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`,
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

@@ -15,6 +15,9 @@ import { useRouter } from "next/navigation";
 import CDrawer from "@/components/ui/Drawer";
 import ReactPagination from "@/components/ui/ReactPagination";
 import { useGetShopQuery } from "@/libs/features/services/shop";
+import NormalTransitionLink from "@/components/ui/NormalTransitionLink";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
+import { Card, Input, Skeleton } from "@nextui-org/react";
 
 export const Filter = () => {
   const [searchVal, setSearchVal] = useState("");
@@ -39,6 +42,8 @@ export const Filter = () => {
   const [activeIndexes, setActiveIndexes] = useState<number[]>(
     data?.products?.map(() => 0) || [],
   );
+
+  console.log(isLoading);
 
   const onClose = () => {
     setOpen(false);
@@ -84,34 +89,99 @@ export const Filter = () => {
     },
     [],
   );
+
+  if (isLoading) {
+    return (
+      <section className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
+        <Card className="space-y-5 p-4" radius="lg">
+          <Skeleton className="rounded-lg">
+            <div className="h-24 rounded-lg bg-default-300" />
+          </Skeleton>
+          <div className="space-y-3">
+            <Skeleton className="w-3/5 rounded-lg">
+              <div className="h-3 w-3/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-4/5 rounded-lg">
+              <div className="h-3 w-4/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-2/5 rounded-lg">
+              <div className="h-3 w-2/5 rounded-lg bg-default-300" />
+            </Skeleton>
+          </div>
+        </Card>
+        <Card className="space-y-5 p-4" radius="lg">
+          <Skeleton className="rounded-lg">
+            <div className="h-24 rounded-lg bg-default-300" />
+          </Skeleton>
+          <div className="space-y-3">
+            <Skeleton className="w-3/5 rounded-lg">
+              <div className="h-3 w-3/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-4/5 rounded-lg">
+              <div className="h-3 w-4/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-2/5 rounded-lg">
+              <div className="h-3 w-2/5 rounded-lg bg-default-300" />
+            </Skeleton>
+          </div>
+        </Card>
+        <Card className="space-y-5 p-4" radius="lg">
+          <Skeleton className="rounded-lg">
+            <div className="h-24 rounded-lg bg-default-300" />
+          </Skeleton>
+          <div className="space-y-3">
+            <Skeleton className="w-3/5 rounded-lg">
+              <div className="h-3 w-3/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-4/5 rounded-lg">
+              <div className="h-3 w-4/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-2/5 rounded-lg">
+              <div className="h-3 w-2/5 rounded-lg bg-default-300" />
+            </Skeleton>
+          </div>
+        </Card>
+        <Card className="space-y-5 p-4" radius="lg">
+          <Skeleton className="rounded-lg">
+            <div className="h-24 rounded-lg bg-default-300" />
+          </Skeleton>
+          <div className="space-y-3">
+            <Skeleton className="w-3/5 rounded-lg">
+              <div className="h-3 w-3/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-4/5 rounded-lg">
+              <div className="h-3 w-4/5 rounded-lg bg-default-200" />
+            </Skeleton>
+            <Skeleton className="w-2/5 rounded-lg">
+              <div className="h-3 w-2/5 rounded-lg bg-default-300" />
+            </Skeleton>
+          </div>
+        </Card>
+      </section>
+    );
+  }
+
   return (
     <>
-      <div className="flex flex-row items-center justify-between">
-        <div>
+      <div className="flex w-full flex-col justify-between gap-2 lg:flex-row lg:items-start">
+        <div className="flex items-center gap-4">
           <button
             onClick={() => setOpen(true)}
-            className="flex flex-row items-center gap-[5px] bg-[#eff0e8] px-[20px] py-[8px] font-[600]"
+            className="flex w-20 flex-row items-center rounded-button bg-[#eff0e8] px-2 py-2 text-[12px] font-[600]"
           >
-            <Icon icon="system-uicons:filtering" width={20} />
+            <Icon icon="system-uicons:filtering" />
             Bộ lọc
           </button>
+
+          <Input
+            placeholder="Tìm kiểm sản phẩm"
+            value={searchVal}
+            onInput={handleSearch}
+          />
         </div>
         <div className="flex flex-row items-center gap-[30px]">
-          <div className="relative">
-            <Icon
-              icon="lets-icons:search-alt-light"
-              width={25}
-              className="absolute left-[4px] top-[5px]"
-            />
-            <input
-              placeholder="Tìm kiếm theo tên"
-              value={searchVal}
-              onInput={handleSearch}
-              className="h-[36px] rounded-[5px] border border-[#e9eaeb] pl-[30px] pr-[10px] outline-none placeholder:text-[14px] placeholder:font-[400]"
-            />
-          </div>
           <div className="flex flex-row items-center gap-[10px]">
-            <span>Sort by:</span>
+            <span>Sắp xếp theo:</span>
             <Select
               className="custom-sort h-[36px] w-[180px]"
               showSearch
@@ -134,20 +204,17 @@ export const Filter = () => {
         </div>
       </div>
       <div className="mb-[50px] mt-[20px]">
-        <div className="grid grid-cols-4 gap-x-[15px] gap-y-[40px]">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
           {data?.products?.map((item, index) => {
             const rating = (item?.productRating / item?.ratingCount).toFixed(1);
             return (
               <div
                 key={index}
-                onClick={() => router.push(`/shop/${item.productSlug}`)}
                 className="flex cursor-pointer flex-col gap-[10px]"
               >
-                <div className="swiper-container relative w-[352px]">
-                  <button className={`swiper-button-prev-${index}`}>
-                    <Icon icon="uil:angle-left" width={22} />
-                  </button>
+                <div className="swiper-container relative">
                   <Swiper
+                    className="relative"
                     modules={[Navigation, Pagination, Scrollbar]}
                     spaceBetween={50}
                     slidesPerView={1}
@@ -155,7 +222,6 @@ export const Filter = () => {
                       prevEl: `.swiper-button-prev-${index}`,
                       nextEl: `.swiper-button-next-${index}`,
                     }}
-                    pagination={{ clickable: true }}
                     scrollbar={{ draggable: true }}
                     onSwiper={onSwiper}
                     onSlideChange={(swiper) => onSlideChange(swiper, index)}
@@ -163,24 +229,34 @@ export const Filter = () => {
                   >
                     {item?.productImages?.map((img, imgKey) => (
                       <SwiperSlide key={imgKey}>
-                        <Image
-                          src={img}
-                          width={352}
-                          height={510}
-                          className="h-[510px] rounded-[10px]"
-                          alt={`Image ${imgKey}`}
-                        />
+                        <NormalTransitionLink
+                          className="h-[200px] w-full md:h-[500px]"
+                          href={`/shop/${item.productSlug}`}
+                        >
+                          <ResponsiveImage
+                            imageSrc={img}
+                            imageWidth={352}
+                            imageHeight={510}
+                            additionClass="w-full rounded-[10px] h-[300px]"
+                            altImage={`${item.productName}`}
+                            priority
+                          />
+                        </NormalTransitionLink>
                       </SwiperSlide>
                     ))}
+                    <button
+                      className={`swiper-button-next-${index} absolute right-0 top-1/2 z-10 rounded-full bg-white`}
+                    >
+                      <Icon icon="uis:angle-right" width={22} />
+                    </button>
+                    <button
+                      className={`swiper-button-prev-${index} absolute left-0 top-1/2 z-10 rounded-full bg-white`}
+                    >
+                      <Icon icon="uil:angle-left" width={22} />
+                    </button>
                   </Swiper>
-                  <button className={`swiper-button-next-${index}`}>
-                    <Icon icon="uis:angle-right" width={22} />
-                  </button>
                 </div>
-                <div
-                  className="cursor-pointer"
-                  onClick={() => router.push(`/shop/${item._id}`)}
-                >
+                <div className="cursor-pointer">
                   <div className="flex flex-row items-center gap-[5px]">
                     <div className="flex flex-row gap-[2px]">
                       {Number(rating) > 0 &&

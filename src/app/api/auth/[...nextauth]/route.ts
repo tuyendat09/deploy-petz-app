@@ -14,8 +14,9 @@ const handler = NextAuth({
       async authorize(credentials) {
         if (!credentials) return null;
         try {
+          console.log(process.env.NEXT_PUBLIC_API_URL);
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -57,7 +58,7 @@ const handler = NextAuth({
       if (account?.provider === "google") {
         try {
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`,
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/google`,
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

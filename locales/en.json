@@ -1,0 +1,43 @@
+{
+    "nav": {
+        "title": "Title"
+    },
+
+    "home": {
+        "booking": "Make an appointment",
+        "howToBooking": "How to make an appointment?",
+        "contact": "Contact us!",
+        "discover": "Discover"
+    },
+    "arrivals": {
+        "title": "Our New Arrivals"
+    },
+    "about": {
+        "title": "We Care About Your Pets And Their Well-Being",
+        "desc": "Happy Paw is an online store that offers goods for your pets: cats and dogs, fish, rabbits, birds, and many other animals.",
+        "selling": "We sell pet food, supplies, clothes, and different products by the best American and European manufacturers. We are pet lovers, just like you, and pick only the best and high-quality goods:",
+        "items": {
+            "item1": "hypoallergenic dry and wet food;",
+            "item2": "safe and long-lasting toys;",
+            "item3": "bedding, beds, and cages;",
+            "item4": "aquariums, tanks, and accessories;",
+            "item5": "clothes, collars, and harnesses."
+        },
+        "freeShipping": {
+            "title": "Free Shipping",
+            "content": "Free shipping on all orders."
+        },
+        "returns": {
+            "title": "10-Day Returns",
+            "content": "Contact us for a return."
+        },
+        "payment": {
+            "title": "Secure Payment",
+            "content": "We accept Visa and MasterCard."
+        },
+        "support": {
+            "title": "Online Support",
+            "content": "We are always here to help."
+        }
+    }
+}

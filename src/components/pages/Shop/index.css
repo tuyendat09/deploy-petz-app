@@ -1,0 +1,7 @@
+.custom-sort > div > .ant-select-selection-placeholder {
+    color: black;
+}
+
+.custom-sort > div {
+    background: #eff0e8 !important;
+}

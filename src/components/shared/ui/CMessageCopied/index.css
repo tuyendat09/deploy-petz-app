@@ -1,0 +1,4 @@
+.custom-class > .ant-message-notice-content {
+    box-shadow: none !important;
+    border: 1px solid rgb(232, 232, 232);
+}

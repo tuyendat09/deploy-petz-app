@@ -1,0 +1,27 @@
+.swiper-container > button {
+  background-color: white;
+  color: black;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.swiper-container > button:first-child {
+  left: 10px;
+}
+
+.swiper-container > button:last-child {
+  right: 10px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: brown;
+}

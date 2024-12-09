@@ -1,0 +1,70 @@
+.custom-autocomplete>div>div {
+    background-color: white !important;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px !important;
+    height: 48px !important;
+}
+
+.custom-radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.custom-radio > span {
+    position: relative;
+    padding-left: 40px; /* Khoảng cách cho checkbox */
+}
+
+.custom-radio > span > input {
+    position: absolute; /* Đưa input ra khỏi dòng */
+    opacity: 0; /* Ẩn input mặc định */
+    width: 0;
+    height: 0;
+}
+
+.custom-radio > span > input + span::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px; 
+    border: 1px solid #d3d3d3; 
+    border-radius: 50%; 
+    background: white;
+}
+
+.custom-radio > span > input:checked + span::before {
+    content: "\2713";
+    color: white; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black; 
+}
+
+:where(.css-dev-only-do-not-override-1hpnbz2).ant-radio-wrapper .ant-radio-checked .ant-radio-inner::after {
+    opacity: 0 !important;
+}
+
+.cart-table > thead > tr > th {
+    font-size: 14px; 
+    font-weight: 500;
+    color: #333;
+} 
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.cart-table th, .cart-table td {
+    padding: 12px 12px 15px 12px;
+    border-bottom: 1px solid #ddd;
+}
+

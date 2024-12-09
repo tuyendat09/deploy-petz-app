@@ -1,0 +1,4 @@
+.custom-steps > span > span > .Mui-completed,
+.custom-steps > span > span > .Mui-active {
+    color: black !important;
+}

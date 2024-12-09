@@ -1,0 +1,34 @@
+{
+    "nav": {
+        "title": "Tiêu đề"
+    },
+
+    "arrivals": {
+        "title": "Sản Phẩm Mới"
+    },
+
+    "home": {
+        "booking": "Đặt lịch",
+        "howToBooking": "Làm sao để đặt lịch?",
+        "contact": "Liên hệ với chúng tôi!",
+        "discover": "Khám Phá"
+    },
+    "about": {
+        "freeShipping": {
+            "title": "Miễn Phí Vận Chuyển",
+            "content": "Miễn phí vận chuyển cho tất cả đơn hàng."
+        },
+        "returns": {
+            "title": "Đổi Hàng Trong 10 Ngày",
+            "content": "Liên hệ với chúng tôi để thực hiện việc trả hàng."
+        },
+        "payment": {
+            "title": "Thanh Toán",
+            "content": "Chúng tôi chấp nhận thẻ Visa và MasterCard."
+        },
+        "support": {
+            "title": "Hỗ Trợ Trực Tuyến",
+            "content": "Chúng tôi luôn sẵn sàng giúp đỡ bạn."
+        }
+    }
+}

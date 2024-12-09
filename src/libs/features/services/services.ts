@@ -28,6 +28,10 @@ export const servicesAPI = createApi({
   reducerPath: "servicesAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/services`,
+    prepareHeaders: (headers) => {
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
   tagTypes: ["Services"],
 

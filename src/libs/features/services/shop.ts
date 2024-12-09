@@ -27,25 +27,10 @@ export const shopAPI = createApi({
   reducerPath: "shopAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/shop`,
-    // Prepare headers dynamically
-    // prepareHeaders: (headers, { getState }) => {
-    //   // Ensure Content-Type is correctly set
-    //   const contentType = headers.get("Content-Type");
-    //   if (contentType !== "") {
-    //     headers.set("Content-Type", "application/json");
-    //   }
-    //   if (contentType === "") {
-    //     headers.delete("Content-Type");
-    //   }
-
-    //   // Get the token from the store and set the Authorization header
-    //   const token = (getState() as RootState).user.token; // Adjust based on your state structure
-    //   if (token) {
-    //     headers.set("authorization", `Bearer ${token}`);
-    //   }
-
-    //   return headers;
-    // },
+    prepareHeaders: (headers) => {
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
   tagTypes: ["Product", "ProductList", "Review"],
 
@@ -63,6 +48,4 @@ export const shopAPI = createApi({
   }),
 });
 
-export const {
-  useGetShopQuery,
-} = shopAPI;
+export const { useGetShopQuery } = shopAPI;

@@ -31,6 +31,10 @@ export const vouchersAPI = createApi({
   reducerPath: "vouchersAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/voucher`,
+    prepareHeaders: (headers) => {
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
   tagTypes: ["Voucher", "HeldVouchers"],
 

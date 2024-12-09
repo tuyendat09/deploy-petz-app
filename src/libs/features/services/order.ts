@@ -27,6 +27,10 @@ export const orderAPI = createApi({
   reducerPath: "orderAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/orders`,
+    prepareHeaders: (headers) => {
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
   tagTypes: ["Orders"],
 

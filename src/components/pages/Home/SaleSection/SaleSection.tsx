@@ -17,8 +17,6 @@ export default function SaleSection() {
     }
   }, [Products]);
 
-  console.log(Products);
-
   return (
     <section className="mt-[250px]">
       <div className="container">

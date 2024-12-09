@@ -10,6 +10,10 @@ export const authAPI = createApi({
   reducerPath: "authAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/auth`,
+    prepareHeaders: (headers) => {
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
 
   endpoints: (builder) => ({

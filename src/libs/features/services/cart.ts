@@ -5,6 +5,10 @@ export const cartAPI = createApi({
   reducerPath: "cartAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/cart`,
+    prepareHeaders: (headers) => {
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
 
   endpoints: (builder) => ({

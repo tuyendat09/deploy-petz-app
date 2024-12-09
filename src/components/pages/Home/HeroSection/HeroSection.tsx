@@ -16,6 +16,8 @@ const TextVariant = {
 };
 
 export default function HeroSection() {
+  console.log(process.env.NEXT_PUBLIC_API_URL);
+
   useEffect(() => {
     document.body.classList.remove("dark");
 

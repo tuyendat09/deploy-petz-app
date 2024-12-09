@@ -10,6 +10,10 @@ export const paymentAPI = createApi({
   reducerPath: "paymentAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/payment`,
+    prepareHeaders: (headers) => {
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
   tagTypes: ["Payment"],
   endpoints: (builder) => ({

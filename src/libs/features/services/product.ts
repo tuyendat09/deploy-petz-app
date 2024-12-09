@@ -39,6 +39,11 @@ export const productsAPI = createApi({
   reducerPath: "productsAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/product`,
+    prepareHeaders: (headers) => {
+      // Add the ngrok-skip-browser-warning header
+      headers.set("ngrok-skip-browser-warning", "69420");
+      return headers;
+    },
   }),
   tagTypes: ["Product", "ProductList", "Review"],
 

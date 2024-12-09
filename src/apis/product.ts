@@ -27,7 +27,7 @@ export const getProduct = async (params: QueryParams) => {
   ).toString();
 
   const response = await fetch(
-    `${DOMAIN_URL}/product/?${queryParams}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/product/?${queryParams}`,
     options,
   );
 
@@ -45,7 +45,7 @@ export const getProductWithPaginate = async (params: QueryParams) => {
     params as Record<string, string>,
   ).toString();
   const response = await fetch(
-    `${DOMAIN_URL}/product/page?${queryParams}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/product/page?${queryParams}`,
     options,
   );
 
